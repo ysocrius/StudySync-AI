@@ -1,0 +1,32 @@
+services:
+  # 1. Backward Service (Flask API)
+  - type: web
+    name: citrine-sage-backend
+    env: python
+    region: singapore # or ohio, frankfurt etc.
+    plan: free # Request free tier
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && gunicorn main:app --timeout 120
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+    autoDeploy: false
+
+  # 2. Frontend Service (React Static)
+  - type: static
+    name: citrine-sage-frontend
+    env: static
+    region: singapore
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: citrine-sage-backend
+          property: url

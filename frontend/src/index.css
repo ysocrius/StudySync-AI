@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@base {
+  :root {
+    --primary: 260 80% 60%;
+    --secondary: 180 70% 45%;
+    --accent: 35 90% 60%;
+    --bg-mesh: linear-gradient(135deg, #febbba 0%, #c1a3eb 50%, #8bc6ec 100%);
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    @apply bg-gray-50 text-gray-900 overflow-x-hidden;
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+

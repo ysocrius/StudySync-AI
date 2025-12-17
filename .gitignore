@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+frontend/dist/
+frontend/.env
+
+# Local Config
+.env
+backend/.env
+
+# User Data & Artifacts
+backend/uploads/
+backend/vector_store/
+_deprecated/
+.gemini/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
