@@ -7,7 +7,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+# Explicitly allow all origins for debugging "Network Error"
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+@app.route('/')
+def index():
+    return "Citrine & Sage Backend Running"
 
 @app.route('/health', methods=['GET'])
 def health_check():
