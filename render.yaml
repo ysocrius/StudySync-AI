@@ -12,9 +12,10 @@ services:
         sync: false
     autoDeploy: false
 
-staticSites:
   # 2. Frontend Service (React Static)
-  - name: citrine-sage-frontend
+  - type: web
+    name: citrine-sage-frontend
+    env: static
     region: singapore
     plan: free
     buildCommand: cd frontend && npm install && npm run build
