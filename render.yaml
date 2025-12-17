@@ -16,7 +16,6 @@ services:
   - type: web
     name: citrine-sage-frontend
     env: static
-    region: singapore
     plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
@@ -29,4 +28,4 @@ services:
         fromService:
           type: web
           name: citrine-sage-backend
-          property: url
+          property: host
