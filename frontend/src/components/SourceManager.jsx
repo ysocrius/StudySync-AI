@@ -24,7 +24,9 @@ export default function SourceManager({ onComplete }) {
                 setFiles(prev => [...prev, file.name]);
             } catch (e) {
                 console.error("Upload failed", e);
-                setError("Failed to upload " + file.name);
+                // Try to extract server error message
+                const msg = e.response?.data?.error || e.message;
+                setError(`Failed to upload ${file.name}: ${msg}`);
             }
         }
     };

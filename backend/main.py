@@ -70,7 +70,9 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/api/upload', methods=['POST'])
 def upload_file():
+    print(f"DEBUG: Upload Endpoint Hit. Files: {request.files}")
     if 'file' not in request.files:
+        print("DEBUG: No file part in request")
         return jsonify({"error": "No file part"}), 400
     file = request.files['file']
     if file.filename == '':
